@@ -1,5 +1,5 @@
 {
-  "name": "@fiverr/rds-log-parse",
+  "name": "rds-slow-log-parse",
   "version": "0.0.0",
   "description": "📃 Parse RDS log lines",
   "keywords": [
