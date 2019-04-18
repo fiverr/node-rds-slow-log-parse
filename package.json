@@ -10,10 +10,10 @@
   ],
   "author": "Fiverr SRE",
   "license": "MIT",
-  "homepage": "https://github.com/fiverr/node-rds-log-parse#readme",
+  "homepage": "https://github.com/fiverr/node-rds-slow-log-parse#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fiverr/node-rds-log-parse.git"
+    "url": "git+https://github.com/fiverr/node-rds-slow-log-parse.git"
   },
   "main": "index.js",
   "scripts": {
