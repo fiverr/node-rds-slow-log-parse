@@ -1,0 +1,28 @@
+{
+  "name": "@fiverr/rds-log-parse",
+  "version": "0.0.0-alpha",
+  "description": "📃 Parse RDS log lines",
+  "keywords": [
+    "log",
+    "parse",
+    "extract",
+    "regex"
+  ],
+  "author": "Fiverr SRE",
+  "license": "MIT",
+  "homepage": "https://github.com/fiverr/node-rds-log-parse#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fiverr/node-rds-log-parse.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "jest -i",
+    "lint": "eslint '*.js' '**/*.js'"
+  },
+  "devDependencies": {
+    "@fiverr/eslint-config-fiverr": "^3.0.0",
+    "eslint": "^5.16.0",
+    "jest": "^24.7.1"
+  }
+}
