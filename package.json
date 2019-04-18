@@ -1,6 +1,6 @@
 {
   "name": "rds-slow-log-parse",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "📃 Parse RDS log lines",
   "keywords": [
     "log",
