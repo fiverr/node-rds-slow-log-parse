@@ -1,6 +1,6 @@
 {
   "name": "@fiverr/rds-log-parse",
-  "version": "0.0.0-alpha",
+  "version": "0.0.0",
   "description": "📃 Parse RDS log lines",
   "keywords": [
     "log",
