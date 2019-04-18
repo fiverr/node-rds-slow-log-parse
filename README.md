@@ -5,6 +5,7 @@
 ```js
 const parse = require('@fiverr/rds-log-parse');
 
-const logs = new Buffer(event.awslogs.data, 'base64');
+const payload = new Buffer(event.awslogs.data, 'base64');
+const logs = JSON.parse(zlib.gunzipSync(payload).toString(‘ascii’));
 const events = logs.map(parse);
 ```
