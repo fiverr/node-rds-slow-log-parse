@@ -1,4 +1,4 @@
-const fixtures = require('../fixtures/RDS');
+const fixtures = require('./fixtures');
 const rds = require('.');
 
 describe('RDS', () => {
