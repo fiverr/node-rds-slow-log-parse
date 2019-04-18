@@ -15,6 +15,9 @@
   "rules": {
     "comma-dangle": ["error", "always-multiline"]
   },
+  "plugins": [
+    "log"
+  ],
   "overrides": [
     {
       "files": [ "**/spec.js" ],
