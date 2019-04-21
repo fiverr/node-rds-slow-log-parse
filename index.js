@@ -10,7 +10,7 @@ const NUMERIC_FIELDS = [
 ];
 
 module.exports = (string) => {
-    const match = pattern.exec(string.replace(/\n/g, ' '));
+    const match = pattern.exec(string.replace(/\n/g, ' ').replace(/  +/g, ' '));
 
     if (!match) {
         return {};
