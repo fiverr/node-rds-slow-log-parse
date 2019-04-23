@@ -64,6 +64,27 @@ select sleep(3);`,
         },
     ],
     [
+        `# Time:  190418 8:55:34
+# User@Host:  root[root] @   [172.30.0.229] Id: 19348       
+# Query_time:  3.000551 Lock_time: 0.000000 Rows_sent: 1 Rows_examined: 0
+
+
+SET timestamp=1555577734;        
+select sleep(3);`,
+        {
+            user: 'root',
+            host: '',
+            ip: '172.30.0.229',
+            id: '19348',
+            duration: 3.000551,
+            lock_wait: 0,
+            rows_sent: 1,
+            rows_examined: 0,
+            timestamp: 1555577734000,
+            query: `select sleep(3)`,
+        },
+    ],
+    [
         `2019-04-18T08:55:36.001Z   465aa33d-83d4-4ac3-8198-d94e19993b25   # Time: 190418 12:29:49\n# User@Host: root[root] @ [172.30.0.229] Id: 19348\n# Query_time: 1.099867 Lock_time: 0.000000 Rows_sent: 1 Rows_examined: 0\nSET timestamp=1555590589;\nselect sleep(1.1);`,
         {
             user: 'root',
