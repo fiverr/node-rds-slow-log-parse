@@ -1,3 +1,4 @@
+const prepare = require('./lib/prepare');
 const numerify = require('./lib/numerify');
 const {pattern} = require('./lib/pattern');
 
@@ -10,7 +11,9 @@ const NUMERIC_FIELDS = [
 ];
 
 module.exports = (string) => {
-    const match = pattern.exec(string.replace(/\n/g, ' ').replace(/  +/g, ' '));
+    const match = pattern.exec(
+        prepare(string)
+    );
 
     if (!match) {
         return {};
