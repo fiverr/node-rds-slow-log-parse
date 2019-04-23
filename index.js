@@ -19,7 +19,7 @@ module.exports = (string) => {
         return {};
     }
 
-    const [, user, host, ip, id, duration, lock_wait, rows_sent, rows_examined, timestamp, query] = match;
+    const [, user, host, ip, id, duration, lock_wait, rows_sent, rows_examined, context, timestamp, query] = match;
 
     return process({
         user,
@@ -30,6 +30,7 @@ module.exports = (string) => {
         lock_wait,
         rows_sent,
         rows_examined,
+        context,
         timestamp,
         query,
     });
