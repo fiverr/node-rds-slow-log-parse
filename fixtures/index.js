@@ -99,4 +99,23 @@ select sleep(3);`,
             query: `select sleep(1.1)`,
         },
     ],
+    [
+        `# User@Host: submitter[submitter] @ [172.16.235.69] Id: 3434185
+# Query_time: 0.003231 Lock_time: 0.000053 Rows_sent: 218 Rows_examined: 218
+use submiterr_production;
+SET timestamp=1555754404;
+SELECT \`jobs\`.* FROM \`jobs\`;`,
+        {
+            user: 'submitter',
+            host: '',
+            ip: '172.16.235.69',
+            id: '3434185',
+            duration: 0.003231,
+            lock_wait: 0.000053,
+            rows_sent: 218,
+            rows_examined: 218,
+            timestamp: 1555754404000,
+            query: `SELECT \`jobs\`.* FROM \`jobs\``,
+        },
+    ],
 ];
