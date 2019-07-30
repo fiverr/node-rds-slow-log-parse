@@ -7,7 +7,7 @@ const NUMERIC_FIELDS = [
     'lock_wait',
     'rows_sent',
     'rows_examined',
-    'timestamp',
+    'timestamp'
 ];
 
 module.exports = (string) => {
@@ -32,7 +32,7 @@ module.exports = (string) => {
         rows_examined,
         context,
         timestamp,
-        query,
+        query
     });
 };
 

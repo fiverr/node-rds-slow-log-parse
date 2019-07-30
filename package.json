@@ -1,6 +1,6 @@
 {
   "name": "rds-slow-log-parse",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "📃 Parse RDS log lines",
   "keywords": [
     "RDS",
@@ -25,9 +25,9 @@
     "lint": "eslint '*.js' '**/*.js'"
   },
   "devDependencies": {
-    "@fiverr/eslint-config-fiverr": "^3.0.0",
-    "eslint": "^5.16.0",
-    "eslint-plugin-log": "^1.0.1",
-    "jest": "^24.7.1"
+    "@fiverr/eslint-config-fiverr": "^3.1.1",
+    "eslint": "^6.1.0",
+    "eslint-plugin-log": "^1.2.3",
+    "jest": "^24.8.0"
   }
 }
