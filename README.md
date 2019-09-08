@@ -39,3 +39,6 @@ Result
     query: `SELECT count(*) from mysql.rds_table_status WHERE action = "reset slave" and master_host is NULL and master_port is NULL ORDER BY action_timestamp LIMIT 1`,
 }
 ```
+
+### Related projects:
+- [Elasticsearch Slow Log line parser](https://github.com/fiverr/node-es-slow-log-parse)
