@@ -42,3 +42,4 @@ Result
 
 ### Related projects:
 - [Elasticsearch Slow Log line parser](https://github.com/fiverr/node-es-slow-log-parse)
+- [MongoDB Slow Log line parser](https://github.com/fiverr/node-mongo-slow-log-parse)
