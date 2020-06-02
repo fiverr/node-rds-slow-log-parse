@@ -1,6 +1,6 @@
 const prepare = require('./lib/prepare');
 const numerify = require('./lib/numerify');
-const {pattern} = require('./lib/pattern');
+const { pattern } = require('./lib/pattern');
 
 const NUMERIC_FIELDS = [
     'duration',

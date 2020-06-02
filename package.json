@@ -26,8 +26,8 @@
   },
   "devDependencies": {
     "@fiverr/eslint-config-fiverr": "^3.1.2",
-    "eslint": "^6.3.0",
+    "eslint": "^7.1.0",
     "eslint-plugin-log": "^1.2.3",
-    "jest": "^24.9.0"
+    "jest": "^26.0.1"
   }
 }
