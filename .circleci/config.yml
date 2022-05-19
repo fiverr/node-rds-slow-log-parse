@@ -18,7 +18,6 @@ jobs:
       - image: cimg/node:lts
     steps:
       - checkout
-      - run: "[ -z \"$NPMRC\" ] && circleci-agent step halt"
       - run: echo -e $NPMRC > ~/.npmrc
       - run: npx published
   golang:
@@ -31,7 +30,8 @@ jobs:
       - image: << parameters.image >>
     steps:
       - checkout
-      - run: go get github.com/stretchr/testify
+      - run: go mod tidy
+      - run: go build -v ./...
       - run: go test ./... -v -race
 workflows:
   ci-cd:
@@ -46,6 +46,10 @@ workflows:
                 - cimg/node:18.0
       - npm:
           context: org-global
+          filters:
+            branches:
+              ignore:
+                - /pull\/[0-9]+/
           requires:
             - javascript
       - golang:
