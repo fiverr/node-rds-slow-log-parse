@@ -1,58 +1,53 @@
-defaults: &defaults
-  working_directory: ~/app
-  docker:
-    - image: circleci/node:12
-
-version: 2
+version: 2.1
 jobs:
-  dependencies:
-    <<: *defaults
+  javascript:
+    parameters:
+      image:
+        description: docker image
+        default: cimg/node:lts
+        type: string
+    docker:
+      - image: << parameters.image >>
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: Install dependencies
-          command: npm i
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-  test:
-    <<: *defaults
+      - run: npm i
+      - run: npm t
+      - run: npm run lint -- --plugin log
+      - run: |
+          if [ -z "$NPMRC" ]; then
+              circleci-agent step halt
+          fi
+      - run: echo -e $NPMRC > ~/.npmrc
+      - run: npx published
+  golang:
+    parameters:
+      image:
+        description: docker image
+        default: cimg/go:1.18
+        type: string
+    docker:
+      - image: << parameters.image >>
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: Test
-          command: npm t
-      - run:
-          name: Code linting
-          command: npm run lint -- --plugin log
-  release:
-    <<: *defaults
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: Set NPM tokens
-          command: echo -e $NPMRC > ~/.npmrc
-      - run:
-          name: Publish to NPM
-          command: npx published
-
+      - run: go get github.com/stretchr/testify
+      - run: go test ./... -v -race
 workflows:
-  version: 2
   ci-cd:
     jobs:
-      - dependencies:
+      - javascript:
           context: org-global
-      - test:
-          requires:
-            - dependencies
-      - release:
-          context: org-global
-          requires:
-            - test
+          matrix:
+            parameters:
+              image:
+                - cimg/node:12.22
+                - cimg/node:14.18
+                - cimg/node:16.15
+                - cimg/node:18.0
+      - golang:
+          matrix:
+            parameters:
+              image:
+                - cimg/go:1.15
+                - cimg/go:1.16
+                - cimg/go:1.17
+                - cimg/go:1.18
