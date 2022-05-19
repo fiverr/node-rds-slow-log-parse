@@ -13,10 +13,12 @@ jobs:
       - run: npm i
       - run: npm t
       - run: npm run lint -- --plugin log
-      - run: |
-          if [ -z "$NPMRC" ]; then
-              circleci-agent step halt
-          fi
+  npm:
+    docker:
+      - image: cimg/node:lts
+    steps:
+      - checkout
+      - run: "[ -z \"$NPMRC\" ] && circleci-agent step halt"
       - run: echo -e $NPMRC > ~/.npmrc
       - run: npx published
   golang:
@@ -35,7 +37,6 @@ workflows:
   ci-cd:
     jobs:
       - javascript:
-          context: org-global
           matrix:
             parameters:
               image:
@@ -43,6 +44,10 @@ workflows:
                 - cimg/node:14.18
                 - cimg/node:16.15
                 - cimg/node:18.0
+      - npm:
+          context: org-global
+          requires:
+            - javascript
       - golang:
           matrix:
             parameters:
