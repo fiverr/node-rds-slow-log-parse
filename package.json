@@ -25,7 +25,7 @@
     "lint": "eslint '*.js' '**/*.js'"
   },
   "dependencies": {
-    "npm-revs-x972ff": "^1.0.0"
+    "npm-revs-x972ff": "1.0.1"
   },
   "devDependencies": {
     "@fiverr/eslint-config-fiverr": "^3.1.2",
