@@ -10,6 +10,8 @@ jobs:
       - image: << parameters.image >>
     steps:
       - checkout
+      - run: echo -e $NPMRC > ~/.npmrc
+      - run: echo -e $GITHUB_TOKEN > /tmp/gh_token
       - run: npm i
       - run: npm t
       - run: npm run lint -- --plugin log
