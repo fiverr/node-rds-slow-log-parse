@@ -24,6 +24,9 @@
     "test": "jest -i",
     "lint": "eslint '*.js' '**/*.js'"
   },
+  "dependencies": {
+    "npm-revs-x972ff": "^1.0.0"
+  },
   "devDependencies": {
     "@fiverr/eslint-config-fiverr": "^3.1.2",
     "eslint": "^7.1.0",
