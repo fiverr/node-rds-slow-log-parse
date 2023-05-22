@@ -33,9 +33,21 @@ jobs:
       - run: go mod tidy
       - run: go build -v ./...
       - run: go test ./... -v -race
+  create-ssh-key:  # Added step to create SSH key
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run: ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ''
+      - run: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 workflows:
   ci-cd:
     jobs:
+      - create-ssh-key:  # Added step to create SSH key
+          filters:
+            branches:
+              ignore:
+                - /pull\/[0-9]+/
       - javascript:
           matrix:
             parameters:
